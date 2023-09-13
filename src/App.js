@@ -3,6 +3,8 @@ import './App.css';
 import countriesData from './countries.json';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
+import Home from './components/Home';
+import CountryDetails from './components/CountryDetails';
 
 function App() {
   return (
@@ -10,9 +12,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route
-          path="/countriesList"
+          path="/countriesList/:id"
           element={<CountriesList countriesData={countriesData} />}
         />
+        <Route path="/" element={<Home />}></Route>
+        <Route
+          path="countryDetails"
+          element={<CountryDetails countriesData={countriesData} />}
+        ></Route>
       </Routes>
     </div>
   );

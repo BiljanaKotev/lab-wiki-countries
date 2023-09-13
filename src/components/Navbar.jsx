@@ -5,7 +5,7 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-dark bg-primary mb-3">
         <div className="container">
-          <Link className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <h1>LAB - WikiCountries</h1>
           </Link>
         </div>

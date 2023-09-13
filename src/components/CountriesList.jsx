@@ -14,10 +14,13 @@ function CountriesList(props) {
                 return (
                   <Link
                     key={country.alpha3Code}
-                    to="https://restcountries.com/v3.1/alpha/{code}"
+                    to={`/countryDetails/${country.alpha3Code}`}
                     className="list-group-item list-group-item-action"
                   >
-                    Alpha 3 code
+                    {country.name.common}
+
+                    <br></br>
+                    {country.alpha2Code}
                   </Link>
                 );
               })}

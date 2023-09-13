@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 
-function CountryDetails() {
+function CountryDetails(props) {
   return (
     <div>
       <div classNameName="col-7">
-        <h1>France</h1>
+        {props.countriesData.map((country) => {
+          return <h1 key={country.alpha3Code}>{country.name.common}</h1>;
+        })}
+
         <table classNameName="table">
           <thead></thead>
           <tbody>
@@ -24,7 +27,7 @@ function CountryDetails() {
               <td>
                 <ul>
                   <li>
-                    <Link href="/AND">Andorra</Link>
+                    <Link to="/AND">Andorra</Link>
                   </li>
                   <li>
                     <Link href="/BEL">Belgium</Link>
