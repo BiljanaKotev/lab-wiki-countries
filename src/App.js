@@ -12,12 +12,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route
-          path="/countriesList/:id"
+          path="/countriesList"
           element={<CountriesList countriesData={countriesData} />}
         />
         <Route path="/" element={<Home />}></Route>
         <Route
-          path="countryDetails"
+          path="countryDetails/:id"
           element={<CountryDetails countriesData={countriesData} />}
         ></Route>
       </Routes>
