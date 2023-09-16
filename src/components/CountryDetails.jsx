@@ -14,7 +14,7 @@ function CountryDetails(props) {
     <div>
       <div className="col-7">
         <div>
-          <h1>{country.name.common}</h1>
+          <h1>{country.name}</h1>
           <table className="table">
             <thead></thead>
             <tbody>
