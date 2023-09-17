@@ -22,7 +22,7 @@ function App() {
       })
       .then((data) => {
         console.log(data);
-        const transformedCountries = data.map((countryData) => {
+        const countriesData = data.map((countryData) => {
           return {
             name: countryData.name.common,
             capital: countryData.capital,
@@ -30,27 +30,16 @@ function App() {
             area: countryData.area,
             alpha2Code: countryData.alpha2Code,
             alpha3Code: countryData.alpha3Code,
+            borders: countryData.borders,
           };
         });
-        setCountries(transformedCountries);
+        setCountries(countriesData);
+      })
+      .catch((err) => {
+        console.error(err);
       });
   }
 
-  // useEffect(() => {
-  //   getCountriesData();
-  // }, []);
-
-  // const [countries, setCountries] = useState([]);
-
-  // const getCountriesData = () => {
-  //   axios
-  //     .get('https://ih-countries-api.herokuapp.com/countries')
-  //     .then((res) => {
-  //       setCountries(res.data);
-  //       console.log(countries);
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
   return (
     <div className="App">
       <Navbar />
@@ -70,3 +59,12 @@ function App() {
 }
 
 export default App;
+
+// First step for routing
+
+// 1. npm i react-router-dom
+// 2.wrap the entire app with the broswer router <BrowserRouter/> in index.js usually import BrowserRouter as Router
+// 3. in App.jsx import Routes and Route
+// 4. write your <Route> tags inside of the <Routes/> tag
+// 5. create a state for the data json file
+//6. use the state variable as the value for the passing data

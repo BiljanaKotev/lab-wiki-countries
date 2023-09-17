@@ -10,10 +10,13 @@ function CountryDetails(props) {
   if (!country) {
     return <div>Country not found!</div>;
   }
+  const flagUrl = `https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`;
+
   return (
     <div>
       <div className="col-7">
         <div>
+          <img src={flagUrl} alt="" />
           <h1>{country.name}</h1>
           <table className="table">
             <thead></thead>
@@ -34,11 +37,12 @@ function CountryDetails(props) {
                 <td>Borders</td>
                 <td>
                   <ul>
-                    {props.countriesData.map((country) => {
+                    {country.borders.map((country) => {
                       return (
                         <li key={country.alpha3Code}>
-                          <Link to="">{country.borders}</Link>
-                          {console.log(country.borders)}
+                          <Link to={`/countryDetails/${country}`}>
+                            {country}
+                          </Link>
                         </li>
                       );
                     })}

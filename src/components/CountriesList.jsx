@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
 
 function CountriesList(props) {
+  const { countriesData } = props;
+  // Check if countriesData is undefined or empty
+  if (!countriesData || countriesData.length === 0) {
+    return <div>Loading countries...</div>;
+  }
   return (
     <div>
       <div className="container">
-        <div className="row">
+        <div className="row justify-content-center">
           <div
             className="col-5"
             style={{ maxHeight: '90vh', overflow: 'scroll' }}
@@ -24,13 +29,9 @@ function CountriesList(props) {
                       alt={`${country.name} flag`}
                       width="72"
                       height="54"
-                      style={{ marginRight: '10px' }}
                     />
-
+                    <br />
                     {country.name}
-
-                    <br></br>
-                    {country.alpha2Code}
                   </Link>
                 );
               })}
