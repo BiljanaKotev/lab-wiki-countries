@@ -3,7 +3,7 @@ import './App.css';
 // import countriesData from './countries.json';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
-import Home from './components/Home';
+
 import CountryDetails from './components/CountryDetails';
 
 import { useEffect, useState } from 'react';
@@ -43,17 +43,26 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route
-          path="/countriesList"
-          element={<CountriesList countriesData={countries} />}
-        />
-        <Route path="/" element={<Home />}></Route>
-        <Route
-          path="countryDetails/:id"
-          element={<CountryDetails countriesData={countries} />}
-        ></Route>
-      </Routes>
+      <div className="container">
+        {/* <!-- Bootstrap row wrapper div --> */}
+        <div className="row">
+          {/* <!-- Countries List (Bootstrap column) --> */}
+          <div
+            className="col-5"
+            style={{ maxHeight: '90vh', overflow: 'scroll' }}
+          >
+            <div className="list-group">
+              <CountriesList countriesData={countries} />
+            </div>
+          </div>
+          <Routes>
+            <Route
+              path="countryDetails/:id"
+              element={<CountryDetails countriesData={countries} />}
+            ></Route>
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
